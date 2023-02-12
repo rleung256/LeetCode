@@ -3,7 +3,7 @@
  * @return {number[][]}
  * https://www.youtube.com/watch?v=2sgT3XXdWEQ
  */
-var threeSum = function (nums) {
+var threeSum = function (nums) { // zero is the target here see line 27
     if (nums.length === 0) {
         return []
     }
@@ -14,7 +14,7 @@ var threeSum = function (nums) {
     for (let i = 0; i < nums.length - 2; i++) { // -2 because of the 2 pointers j and k that will be in front
 
         // stop duplicates from occuring
-        if (i > 0 && nums[i] === nums[i - 1]) {
+        if (nums[i] === nums[i - 1]) { // i > 0  was here before...not sure if its actually needed
             continue;
         }
 
@@ -30,7 +30,7 @@ var threeSum = function (nums) {
                 while (nums[j] === nums[j + 1]) { j++ }
                 while (nums[k] === nums[k - 1]) { k-- }
 
-                j++
+                j++// we move both pointers because we dont want dupes
                 k--
             } else if (sum < 0) {// if your sum is less than zero you need to move the left pointer foreward...remember the array is sorted
                 j++
