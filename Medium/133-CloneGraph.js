@@ -7,6 +7,7 @@
  * https://www.youtube.com/watch?v=RhyF7kGcHbw
  * https://leetcode.com/problems/clone-graph/description/
  * reviewed 2/24/23
+ * reviewed 3/2/23
  */
 
 /**
@@ -26,7 +27,7 @@ var cloneGraph = function (node) {
     function dfs(node) {
         // base cases
         if (!node) { // if theres nothing in there return the original node
-            return node;
+            return node; // at surface this may not seem required but under the hood theres probably a child somewhere with no referances and in general for tree probs u just always return the node
         }
 
         if (!!visited[node.val]) { // look in visitited map for the current value of node
@@ -41,7 +42,7 @@ var cloneGraph = function (node) {
             root.neighbors.push(dfs(neighbor))// this is how we fill our neighbors array....we perform dfs on each neighbor as stated above and we know it is based on line 33
         }
 
-        return root//  this is actually what returns the node value to the array
+        return root//  this is actually what returns the node value to the array // this root here NEEDS to be root and not .val because the values are copies but the ROOT is what is newed up
     }
     return dfs(node)
 };
