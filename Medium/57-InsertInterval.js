@@ -7,7 +7,7 @@
  */
 var insert = function (intervals, newInterval) {
     let res = [];
-    let i = 0;
+    let i = 0; // this i is very important as all 3 while loops increment it
 
     const start = 0;
     const end = 1;
