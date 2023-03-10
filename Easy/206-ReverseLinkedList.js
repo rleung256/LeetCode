@@ -54,3 +54,26 @@ reverseList([1, 2, 3, 4, 5])
 
 // null<=1<=2<=3=>4=>5 set head.next to prev  and so on..
 //          p  h  n
+
+
+
+/**
+ * // 3/10/2023
+    // failed soluition...what im missing is starting off with null. 
+    //overall structure and idea was right...need to remember null, then just set prev to head...set next to curr...then curr.next  = prev....draw it out.
+ */
+var reverseList = function (head) {
+
+    let ret = head;
+
+    while (head) {
+        let prev = head;
+        let curr = head.next;
+        curr.next = prev;
+        prev = curr;
+
+    }
+
+    return ret;
+
+};
