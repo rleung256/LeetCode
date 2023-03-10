@@ -26,3 +26,34 @@ var hasCycle = function (head) {
     }
     return false;
 };
+
+
+
+// Failed solution....very close....a few redundant vars and didnt get the while check correct.
+// always check for hare.next since that's going to run into null before others in the case of no cycles
+
+var hasCycle = function (head) {
+    if (head === null) {
+        return false
+    }
+    let tort = head;
+    let hare = head.next
+
+    while (hare !== null && tort !== null) {
+
+
+        if (tort === hare) {
+            return true;
+        }
+
+        else {
+            head = head.next;
+            tort = tort.next;
+            hare = hare.next.next;
+        }
+    }
+
+    return false
+
+
+}
