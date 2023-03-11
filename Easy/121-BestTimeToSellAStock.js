@@ -25,3 +25,22 @@ var maxProfit = function (prices) {
 };
 
 maxProfit([7, 1, 5, 3, 6, 4])
+
+
+// study 3/11/23
+// 2 silly mistakes, otherwise i had it perfectly
+var maxProfit = function (prices) {
+    var profit = 0;
+    var min = prices[0];
+
+    for (i = 1; i < prices.length; i++) {
+        min = Math.min(min, prices[i]);
+
+        profit = Math.max(profit, prices[i] - min)
+
+    }
+    if (profit < 0) return 0
+    return profit
+
+};
+
