@@ -37,3 +37,24 @@ var twoSum = function (nums, target) {
         else return [map.get(num), i];
     }
 };
+
+
+
+// study 3/11/23
+//got the answer after using the in keyword...think this problem is best solved using a real map and not just an obj...
+var twoSum = function (nums, target) {
+
+    let map = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] in map) {
+            return [map[nums[i]], i]
+        }
+
+        else {
+            map[target - nums[i]] = i
+        }
+
+
+    }
+};
