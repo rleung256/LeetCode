@@ -32,4 +32,43 @@ var isAnagram = function (s, t) {
     return true
 };
 
-isAnagram("anagram")
+
+// study 3/12/23
+// original solution was riddled with simple mistakes, overall solution was good...technically faster than the above since it doesnt sort this is done in o(n)
+// some mistakes included: not referencing the position of s and t, not checking for lengths that are diff, using post increment and decrement, not  using IN, and trying to iterate over an obj without using entries
+var isAnagram = function (s, t) {
+
+    let map = {};
+
+    if (s.length != t.length) return false;
+
+    for (i = 0; i < s.length; i++) {
+
+        if (s[i] in map) {
+
+            map[s[i]] = map[s[i]] + 1;
+        }
+        else {
+            map[s[i]] = 1;
+        }
+    }
+
+    for (j = 0; j < t.length; j++) {
+        if (!map[t[j]]) {
+            return false;
+        }
+        else {
+            map[t[j]] = map[t[j]] - 1;
+        }
+
+
+    }
+
+    for (entry of Object.entries(map)) {
+        if (entry > 0) return false
+    }
+    return true;
+
+};
+
+isAnagram("anagram", 'nagaram')
