@@ -57,3 +57,27 @@ var hasCycle = function (head) {
 
 
 }
+
+
+var hasCycle = function (head) {
+
+    let tort = head;
+    let hare = head;
+
+    while (hare !== null && hare.next !== null) {
+        tort = tort.next;
+        hare = hare.next.next;
+
+        if (tort === hare) {
+            return true;
+        }
+
+
+    }
+
+    return false
+
+}
+
+// study 3/16/2023
+//got it...just need to check hares next and next and id say we got this one DOWN
