@@ -14,7 +14,7 @@ var threeSum = function (nums) { // zero is the target here see line 27
     for (let i = 0; i < nums.length - 2; i++) { // -2 because of the 2 pointers j and k that will be in front
 
         // stop duplicates from occuring
-        if (nums[i] === nums[i - 1]) { // i > 0  was here before...not sure if its actually needed
+        if (nums[i] === nums[i - 1]) { // this is checking the previous index if its the name as the current...we can skip
             continue;
         }
 
@@ -26,9 +26,9 @@ var threeSum = function (nums) { // zero is the target here see line 27
             let sum = nums[i] + nums[j] + nums[k];
             if (sum === 0) {  // found our target
                 res.push([nums[i], nums[j], nums[k]])
-                //stop duplicates
-                while (nums[j] === nums[j + 1]) { j++ }
-                while (nums[k] === nums[k - 1]) { k-- }
+
+                while (nums[j] === nums[j + 1]) { j++ }   //stop duplicates
+                while (nums[k] === nums[k - 1]) { k-- }   //stop duplicates
 
                 j++// we move both pointers because we dont want dupes
                 k--
@@ -45,3 +45,8 @@ var threeSum = function (nums) { // zero is the target here see line 27
 };
 
 threeSum([-1, 0, 1, 2, -1, -4])
+
+/* 3/18/2023 practice
+remember at its heart its a two pointer tech...that means you have to sort.... and remember to check for dupes by checking either i -1 or j + 1
+lastly remember if sum is greater than  0 we want to move right pointer left because the list is sorted and visa versa for less than zero
+*/
