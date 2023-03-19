@@ -16,3 +16,40 @@ function merge(intervals) {
 
 merge([[1, 3], [2, 6], [8, 10], [15, 18]])
 //[[1,6],[8,10],[15,18]]
+
+
+/*
+practice  3/19/2023
+got really close with this one but couldnt quite get it.... logically sound...knew to sort but couldnt deal with pointers to the right place
+
+really all we needed to do was save prev off at the end of each itteration and just compare curr to prev then at the end set prev to curr
+*/
+
+var merge = function (intervals) {
+    let sorted = intervals.sort((a, b) => a[0] - b[0])
+    let ansArray = []
+    let prev = [sorted[0]];
+    for (let i = 0; i < sorted.length; i++) {
+        if (!sorted[i + 1]) {
+
+        }
+
+        else {
+
+            if (prev[1] > sorted[i + 1][0]) {
+                prev = [sorted[i][0], sorted[i + 1][1]]
+            }
+
+
+            if (prev[1] < sorted[i + 1][0]) {
+                ansArray.push(prev);
+            }
+        }
+
+
+    }
+
+    return ansArray;
+};
+
+
