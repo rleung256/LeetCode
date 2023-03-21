@@ -53,3 +53,33 @@ var groupAnagrams = function (strs) {
     }
     return Object.values(map)
 }
+
+/*
+practice 3/20/23
+I basically had teh right solution...forgot the map at the start of the sorted list but otherwise I pretty much had it.
+*/
+
+var groupAnagrams = function (strs) {
+    sortedStrangs = strs.map((str) => str.split('').sort().join(''));
+
+    let mapForAnagrams = {};
+
+    sortedStrings.forEach((entry, index) => {
+        if (mapForAnagrams[entry]) {
+            mapForAnagrams[entry] = mapForAnagrams[entry].push(strs[index]);
+        }
+
+        else {
+            mapForAnagrams[entry] = [strs[index]]
+        }
+
+    })
+
+    let ansArray = [];
+
+    for (entry of mapForAnagrams) {
+        ansArray.push(entry);
+    }
+
+    return ansArray;
+};
