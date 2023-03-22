@@ -29,4 +29,30 @@ var findMin = function (nums) {
     return minOfArray;
 };
 findMin([3, 4, 5, 1, 2])
- //1
+//1
+
+/*
+ practice 3/21/23 
+ I knew what i had to do, messed up a couple things...firstly the iteration...in BS you can just use your pointers as the delimiters.... secondly the return...this returns the left pointer but i think
+ you could also just keep track of a var if you arnt that clever...
+*/
+
+var findMin = function (nums) {
+    let leftPointer = 0;
+    let rightPointer = nums.length - 1;
+
+    while (nums[leftPointer] > nums[rightPointer]) {
+        const midPoint = Math.floor((leftPointer + rightPointer) / 2);
+
+        if (nums[midPoint] > nums[rightPointer]) {
+            leftPointer = midPoint + 1;
+        }
+
+        else {
+            rightPointer = midPoint
+        }
+
+    }
+
+    return nums[leftPointer]
+};
